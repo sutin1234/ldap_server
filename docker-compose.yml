@@ -15,11 +15,13 @@ services:
 
   ldap_server_admin:
     image: osixia/phpldapadmin:0.7.2
+    env_file:
+      - .env
     ports:
-      - 8080:80
+      - $PORT:80
     environment:
       PHPLDAPADMIN_LDAP_HOSTS: ldap_server
-      PHPLDAPADMIN_HTTPS: true
+      PHPLDAPADMIN_HTTPS: 'false'
 
 volumes:
   ldap_data:
